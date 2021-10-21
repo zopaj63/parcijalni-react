@@ -4,6 +4,7 @@ import "./InputFormUser.css";
 export default function InputFormUser() {
 
     const [formState, setFormState] = useState({ text: "" });
+    const [submitState, setSubmitState] = useState([]);
 
     const handleOnChange = (event) => {
         event.preventDefault();
@@ -14,6 +15,11 @@ export default function InputFormUser() {
         );
     }
 
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
+        setSubmitState(state => [...state, formState]);
+    }
+
     fetch("https://api.github.com/users/facebook")
         .then(response => response.json())
         .then(json => console.log(json))
@@ -21,7 +27,7 @@ export default function InputFormUser() {
 
     return (
         <div className="InputFormUser">
-            <form>
+            <form onSubmit={handleOnSubmit}>
                 <label for="text">GitHub username:</label>
                 <input
                     name="text"
