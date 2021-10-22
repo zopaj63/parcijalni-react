@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6f07e254-ac2c-4da7-804b-05e623f6394a/deploy-status)](https://app.netlify.com/sites/zopaj63-parcijalni-react/deploys)
+
 # Parcijalni ispit: React
 
 OL-OFE_DEV_02/21 - REACT - PAJNIĆ ZORAN

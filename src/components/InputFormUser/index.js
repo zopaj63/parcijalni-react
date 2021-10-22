@@ -1,29 +1,19 @@
 import { useState } from "react";
+import ViewUser from "../ViewUser";
 import "./InputFormUser.css";
 
-export default function InputFormUser() {
-
-    const [formState, setFormState] = useState({ text: "" });
-    const [submitState, setSubmitState] = useState([]);
+export default function InputFormUser(props) {
+    const [inputState, setInputState] = useState(null);
 
     const handleOnChange = (event) => {
-        event.preventDefault();
-        setFormState((state) => ({
-            ...state,
-            [event.target.name]: event.target.value,
-        })
-        );
-    }
+        setInputState(() => event.target.value);
+    };
+    console.log(inputState);
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        setSubmitState(state => [...state, formState]);
-    }
-
-    fetch("https://api.github.com/users/facebook")
-        .then(response => response.json())
-        .then(json => console.log(json))
-        .catch(error => console.error(error));
+        ViewUser(inputState);
+    };
 
     return (
         <div className="InputFormUser">
@@ -34,7 +24,7 @@ export default function InputFormUser() {
                     type="text"
                     placeholder="e.g. facebook"
                     onChange={handleOnChange}
-                    value={formState.text}
+                //value={}
                 />
                 <button type="submit">GO!</button>
             </form>
