@@ -8,8 +8,6 @@ export default function ViewUser(props) {
     const [repoData, setRepoData] = useState(null);
     const [repoError, setRepoError] = useState(null);
 
-    console.log(props.user);
-
     useEffect(() => {
         fetch(`https://api.github.com/users/${props.user}`)
             .then((response) => response.json())
@@ -20,7 +18,7 @@ export default function ViewUser(props) {
             .then((response) => response.json())
             .then((json) => setRepoData(json))
             .catch((error) => setRepoError(error));
-    }, []);
+    }, [props.user]);
 
     if (userError !== null || repoError !== null) {
         return <div>Error!(</div>;

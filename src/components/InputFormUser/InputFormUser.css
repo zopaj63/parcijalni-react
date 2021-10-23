@@ -18,7 +18,7 @@
     text-align: center;
     background-color: blue;
     color: whitesmoke;
-    width: 100%;
+    width: 93%;
     border-radius: 4px;
     margin: 8px;
     padding: 8px;
@@ -27,7 +27,7 @@
 .InputFormUser input{
     display: block;
     text-align: left;
-    width: 100%;
+    width: 90%;
     margin: 8px;
-    padding: 4px;
+    padding: 6px;
 }
